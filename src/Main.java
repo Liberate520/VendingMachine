@@ -44,6 +44,11 @@ public class Main {
         //         /          \                /                  \
         // PetrIvanov   MariaAndroonova   Konstantin Kazanskiy   Svetlana Gagarina
 
+
+//        AlexeyKazanskiy.showBrothersSister();
+
+        IrinaIvanova.showPartner();
+
         Human.showTreeChilds(SvetlanaGagarina);
         Human.showTreeParents(NikitaIvanov);
 
