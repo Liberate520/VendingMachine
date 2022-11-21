@@ -26,6 +26,8 @@ public class Main {
         Human KonstantinKazanskiy = new Human(id++, "Konstantin", "Kazanskiy", Gender.man);
         Human SvetlanaGagarina = new Human(id++, "Svetlana", "Gagarina", Gender.woman);
 
+        Human RomanPetrov = new Human(id, "Roman", "Petrov", Gender.man);
+
 
         NikitaIvanov.setFather(IvanIvanov);
         NikitaIvanov.setMother(IrinaIvanova);
@@ -37,20 +39,14 @@ public class Main {
         AlexeyKazanskiy.setFather(KonstantinKazanskiy);
         AlexeyKazanskiy.setMother(SvetlanaGagarina);
 
+        SvetlanaGagarina.setFather(RomanPetrov);
 
-        //                        Nikita Ivanov
-        //                  /                     \
-        //         Ivan Ivanov                      Irina Ivanova     - Alexey Kazanskiy
-        //         /          \                /                  \
-        // PetrIvanov   MariaAndroonova   Konstantin Kazanskiy   Svetlana Gagarina
-
-
-//        AlexeyKazanskiy.showBrothersSister();
-
-        IrinaIvanova.showPartner();
-
-        Human.showTreeChilds(SvetlanaGagarina);
-        Human.showTreeParents(NikitaIvanov);
-
+        NikitaIvanov.showTreeParents();
+        RomanPetrov.showTreeDescendants();
+        AlexeyKazanskiy.showSiblibgs(Gender.woman);
+        NikitaIvanov.showUnclesAunts(Gender.man);
+        IvanIvanov.showSpouse();
+        KonstantinKazanskiy.showChilds();
+        IvanIvanov.showParents();
     }
 }
