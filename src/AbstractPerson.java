@@ -102,22 +102,23 @@ public abstract class AbstractPerson {
     public void showParents() {
         List<AbstractPerson> parents = this.getParents();
         if (parents == null) {
-            System.out.printf("Родители %s %s  неизвестны\n", this.firstName, this.lastName);
+            System.out.printf("Родители %s неизвестны\n", this);
         } else {
-            System.out.printf("Родители %s %s: \n", this.firstName, this.lastName);
+            System.out.printf("Родители %s: \n", this);
             for (AbstractPerson parent : parents) {
-                System.out.printf("%s %s %s\n", parent.firstName, parent.lastName, parent.gender);
+//                System.out.printf("%s %s %s\n", parent.firstName, parent.lastName, parent.gender);
+                System.out.println(parent);
             }
-            System.out.printf("------\n");
+            System.out.print("------\n");
         }
     }
 
     public AbstractPerson getSpouse() {
-        if (this.getChilds() == null) {
+        if (this.getChildren() == null) {
             return null;
         }
 
-        AbstractPerson child = this.getChilds().get(0);
+        AbstractPerson child = this.getChildren().get(0);
         if (this.getGender() == Gender.man) {
             return child.getMother();
         }
@@ -129,79 +130,83 @@ public abstract class AbstractPerson {
 
     public void showSpouse() {
         AbstractPerson spouse = this.getSpouse();
+        String word = spouse.gender == Gender.man ? "супруг" : "супруга";
         if (spouse == null) {
-            System.out.printf("У %s %s нет супруги / супруга\n", this.firstName, this.lastName);
+            System.out.printf("У %s отсутсвует %s\n", this, word);
             return;
         }
+        System.out.printf("У %s есть %s – %s \n", this, word, spouse);
 
-        if (this.gender == Gender.man) {
-            System.out.printf("Супругой %s %s является %s %s\n", this.firstName, this.lastName, spouse.firstName, spouse.lastName);
-        } else if (this.gender == Gender.woman) {
-            System.out.printf("Супругом %s %s является %s %s\n", this.firstName, this.lastName, spouse.firstName, spouse.lastName);
-        }
+//        if (this.gender == Gender.man) {
+//            System.out.printf("Супругой %s %s является %s %s\n", this.firstName, this.lastName, spouse.firstName, spouse.lastName);
+//        } else if (this.gender == Gender.woman) {
+//            System.out.printf("Супругом %s %s является %s %s\n", this.firstName, this.lastName, spouse.firstName, spouse.lastName);
+//        }
     }
     public HashSet<AbstractPerson> getSiblings(Gender gender) {
         HashSet<AbstractPerson> result = new HashSet<>();
         AbstractPerson father = this.getFather();
         AbstractPerson mother = this.getMother();
-        result.addAll(father.getChilds());
-        result.addAll(mother.getChilds());
+        result.addAll(father.getChildren());
+        result.addAll(mother.getChildren());
         result.remove(this);
         result.removeIf(human -> human.getGender() != gender);
 
-        if (result.size() < 1) {
+        if (result.size() == 0) {
             return null;
         }
         return result;
     }
-    public void showSiblibgs(Gender gender) {
+    public void showSiblings(Gender gender) {
         HashSet<AbstractPerson> result = this.getSiblings(gender);
+        String word = gender == Gender.man ? "брат" : "сестра";
         if (result == null) {
-            System.out.printf("У %s %s нет братьев / сестер", this.firstName, this.lastName);
+            System.out.printf("У %s нет %s", this, word);
             return;
         }
 
-        System.out.printf("Братья / сестры %s %s: \n", this.firstName, this.lastName);
-        for (AbstractPerson human : result ) {
-            System.out.printf("%s %s %s\n", human.firstName, human.lastName, human.gender);
+        System.out.printf("У %s есть %s :\n", this, word);
+        for (AbstractPerson person : result ) {
+//            System.out.printf("%s %s %s\n", human.firstName, human.lastName, human.gender);
+            System.out.println(person);
         }
-        System.out.printf("------\n");
+        System.out.print("------\n");
     }
 
     public void showTreeParents() {
         if (this.getParents() == null) {
-            System.out.printf("Предки %s %s неизвестны\n",this.firstName, this.lastName);
+            System.out.printf("Предки %s неизвестны\n", this);
             return;
         }
-        System.out.print("Все предки");
+        System.out.print("Все предки ");
         this.generateTreeParents(this, "");
         System.out.println("------");
     }
-    private void generateTreeParents(AbstractPerson human, String spaces) {
-        if (human == null) {
+    private void generateTreeParents(AbstractPerson person, String spaces) {
+        if (person == null) {
             return;
         }
-        System.out.printf("%s %s %s\n", spaces, human.firstName, human.lastName);
+        System.out.printf("%s %s \n", spaces, person);
         spaces += "  ";
-        generateTreeParents(human.father, spaces);
-        generateTreeParents(human.mother, spaces);
+        generateTreeParents(person.father, spaces);
+        generateTreeParents(person.mother, spaces);
     }
     public void showTreeDescendants() {
-        if (this.getChilds() == null) {
-            System.out.printf("Потомки %s %s неизвестны\n",this.firstName, this.lastName);
+        if (this.getChildren() == null) {
+            System.out.printf("Потомки %s неизвестны\n",this);
             return;
         }
-        System.out.printf("Все потомки");
+        System.out.print("Все потомки ");
         this.generateTreeDescendants(this, "");
         System.out.println("------");
     }
-    private void generateTreeDescendants(AbstractPerson human, String spaces) {
-        if (human == null) {
+    private void generateTreeDescendants(AbstractPerson person, String spaces) {
+        if (person == null) {
             return;
         }
-        System.out.printf("%s %s %s\n", spaces, human.firstName, human.lastName);
+        System.out.printf("%s %s \n", spaces, person);
         spaces += "  ";
-        for (AbstractPerson child : human.childs) {
+        for (AbstractPerson child : person.children) {
             generateTreeDescendants(child, spaces);
         }
 
@@ -217,30 +222,31 @@ public abstract class AbstractPerson {
         if (fatherBrothersSisters != null) {
             result.addAll(fatherBrothersSisters);
         }
-
-        if (result.size() < 1) {
+        if (result.size() == 0) {
             return null;
         }
         return result;
     }
     public void showUnclesAunts(Gender gender) {
-        HashSet<AbstractPerson> unclesAunts = this.getUnclesAunts(gender);
-        if (unclesAunts.size() < 1) {
-            System.out.printf("У %s %s нет дяди / тети\n", this.firstName, this.lastName);
+        HashSet<AbstractPerson> unclesOrAunts = this.getUnclesAunts(gender);
+        String word = gender == Gender.man ? "дядя" : "тетя";
+        if (unclesOrAunts == null) {
+            System.out.printf("У %s нет %s\n", this, word);
             return;
         }
-        System.out.printf("Дяди / тети %s %s:\n", this.firstName, this.lastName);
-        for (AbstractPerson uncleAunt : unclesAunts) {
-            System.out.printf("%s %s %s\n", uncleAunt.firstName, uncleAunt.lastName, uncleAunt.gender);
+        System.out.printf("У %s есть %s :\n", this, word);
+        for (AbstractPerson uncleOrAunt : unclesOrAunts) {
+//            System.out.printf("%s %s %s\n", uncleAunt.firstName, uncleAunt.lastName, uncleAunt.gender);
+            System.out.println(uncleOrAunt);
         }
         System.out.println("-------");
     }
     @Override
     public String toString() {
-        return String.format("id: %d, name: %s %s, gender: %s", this.id, this.firstName, this.lastName, this.gender);
+        return String.format("name: %s %s, gender: %s", this.firstName, this.gender);
     }
     @Override
-    public boolean equals(Object human) {
-        return this.id == ((AbstractPerson) human).id;
+    public boolean equals(Object person) {
+        return this.id == ((AbstractPerson) person).id;
     }
 }

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ec0e2f4-0c27-4d63-99c3-48e025b7cdd1" name="Default Changelist" comment="">
+    <list default="true" id="5ec0e2f4-0c27-4d63-99c3-48e025b7cdd1" name="Default Changelist" comment="Выполнил ДЗ-1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AbstractPerson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AbstractPerson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
