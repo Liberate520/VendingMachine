@@ -3,17 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5ec0e2f4-0c27-4d63-99c3-48e025b7cdd1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VendingMachine/Human.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VendingMachine/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/app/Main 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/app/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/Bottle 2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/Bottle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/TypeProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/VendingMachine.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Human.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Human.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +14,7 @@
       <list>
         <option value="Enum" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -48,6 +38,11 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
