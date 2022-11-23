@@ -2,21 +2,21 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
-public abstract class AbstractPerson {
+public abstract class AbstractCreature implements FamilyTreeShowable {
     private static int count;
     protected final int id;
     protected String firstName;
     protected Gender gender;
 
-    protected AbstractPerson father;
-    protected AbstractPerson mother;
-    protected List<AbstractPerson> children;
+    protected AbstractCreature father;
+    protected AbstractCreature mother;
+    protected List<AbstractCreature> children;
 
     static {
         count = 1;
     }
 
-    public AbstractPerson(String firstName, Gender gender) {
+    public AbstractCreature(String firstName, Gender gender) {
         this.id = count++;
         this.setFirstName(firstName);
         this.setGender(gender);
@@ -32,10 +32,10 @@ public abstract class AbstractPerson {
     public void initChildren() {
         this.children = new ArrayList<>();
     }
-    public void addChild(AbstractPerson child) {
+    public void addChild(AbstractCreature child) {
         this.children.add(child);
     }
-    public void setFather(AbstractPerson father) {
+    public void setFather(AbstractCreature father) {
         if (father.gender == Gender.man) {
             this.father = father;
             this.father.addChild(this);
@@ -44,7 +44,7 @@ public abstract class AbstractPerson {
         }
     }
 
-    public void setMother(AbstractPerson mother) {
+    public void setMother(AbstractCreature mother) {
         if (mother.gender == Gender.woman) {
             this.mother = mother;
             this.mother.addChild(this);
@@ -56,38 +56,38 @@ public abstract class AbstractPerson {
     public Gender getGender() {
         return this.gender;
     }
-    public List<AbstractPerson> getChildren() {
+    public List<AbstractCreature> getChildren() {
         if (this.children.size() == 0) {
             return null;
         }
         return this.children;
     }
-    public void showChilds() {
-        List<AbstractPerson> children = this.getChildren();
+    public void showChildren() {
+        List<AbstractCreature> children = this.getChildren();
         if (children == null) {
 //            System.out.printf("У %s, нет детей\n", this.firstName);
             System.out.printf("У %s нет детей\n", this);
         } else {
             System.out.printf("Дети %s:\n", this);
-            for (AbstractPerson child : children) {
+            for (AbstractCreature child : children) {
 //                System.out.printf("%s %s %s\n", child.firstName, child.lastName, child.gender);
                 System.out.println(child);
             }
             System.out.print("-------\n");
         }
     }
-    public AbstractPerson getFather() {
+    public AbstractCreature getFather() {
         return this.father;
     }
 
-    public AbstractPerson getMother() {
+    public AbstractCreature getMother() {
         return this.mother;
     }
 
-    public List<AbstractPerson> getParents() {
-        List<AbstractPerson> result = new ArrayList<>();
-        AbstractPerson father = this.getFather();
-        AbstractPerson mother = this.getMother();
+    public List<AbstractCreature> getParents() {
+        List<AbstractCreature> result = new ArrayList<>();
+        AbstractCreature father = this.getFather();
+        AbstractCreature mother = this.getMother();
         if (father != null) {
             result.add(father);
         }
@@ -100,25 +100,24 @@ public abstract class AbstractPerson {
         return result;
     }
     public void showParents() {
-        List<AbstractPerson> parents = this.getParents();
+        List<AbstractCreature> parents = this.getParents();
         if (parents == null) {
             System.out.printf("Родители %s неизвестны\n", this);
         } else {
             System.out.printf("Родители %s: \n", this);
-            for (AbstractPerson parent : parents) {
+            for (AbstractCreature parent : parents) {
 //                System.out.printf("%s %s %s\n", parent.firstName, parent.lastName, parent.gender);
                 System.out.println(parent);
             }
             System.out.print("------\n");
         }
     }
-
-    public AbstractPerson getSpouse() {
+    public AbstractCreature getSpouse() {
         if (this.getChildren() == null) {
             return null;
         }
 
-        AbstractPerson child = this.getChildren().get(0);
+        AbstractCreature child = this.getChildren().get(0);
         if (this.getGender() == Gender.man) {
             return child.getMother();
         }
@@ -129,24 +128,18 @@ public abstract class AbstractPerson {
     }
 
     public void showSpouse() {
-        AbstractPerson spouse = this.getSpouse();
-        String word = spouse.gender == Gender.man ? "супруг" : "супруга";
+        AbstractCreature spouse = this.getSpouse();
+        String word = this.gender == Gender.man ? "супруга" : "супруг";
         if (spouse == null) {
             System.out.printf("У %s отсутсвует %s\n", this, word);
             return;
         }
         System.out.printf("У %s есть %s – %s \n", this, word, spouse);
-
-//        if (this.gender == Gender.man) {
-//            System.out.printf("Супругой %s %s является %s %s\n", this.firstName, this.lastName, spouse.firstName, spouse.lastName);
-//        } else if (this.gender == Gender.woman) {
-//            System.out.printf("Супругом %s %s является %s %s\n", this.firstName, this.lastName, spouse.firstName, spouse.lastName);
-//        }
     }
-    public HashSet<AbstractPerson> getSiblings(Gender gender) {
-        HashSet<AbstractPerson> result = new HashSet<>();
-        AbstractPerson father = this.getFather();
-        AbstractPerson mother = this.getMother();
+    public HashSet<AbstractCreature> getSiblings(Gender gender) {
+        HashSet<AbstractCreature> result = new HashSet<>();
+        AbstractCreature father = this.getFather();
+        AbstractCreature mother = this.getMother();
         result.addAll(father.getChildren());
         result.addAll(mother.getChildren());
         result.remove(this);
@@ -158,7 +151,7 @@ public abstract class AbstractPerson {
         return result;
     }
     public void showSiblings(Gender gender) {
-        HashSet<AbstractPerson> result = this.getSiblings(gender);
+        HashSet<AbstractCreature> result = this.getSiblings(gender);
         String word = gender == Gender.man ? "брат" : "сестра";
         if (result == null) {
             System.out.printf("У %s нет %s", this, word);
@@ -166,7 +159,7 @@ public abstract class AbstractPerson {
         }
 
         System.out.printf("У %s есть %s :\n", this, word);
-        for (AbstractPerson person : result ) {
+        for (AbstractCreature person : result ) {
 //            System.out.printf("%s %s %s\n", human.firstName, human.lastName, human.gender);
             System.out.println(person);
         }
@@ -182,7 +175,7 @@ public abstract class AbstractPerson {
         this.generateTreeParents(this, "");
         System.out.println("------");
     }
-    private void generateTreeParents(AbstractPerson person, String spaces) {
+    private void generateTreeParents(AbstractCreature person, String spaces) {
         if (person == null) {
             return;
         }
@@ -200,21 +193,21 @@ public abstract class AbstractPerson {
         this.generateTreeDescendants(this, "");
         System.out.println("------");
     }
-    private void generateTreeDescendants(AbstractPerson person, String spaces) {
+    private void generateTreeDescendants(AbstractCreature person, String spaces) {
         if (person == null) {
             return;
         }
         System.out.printf("%s %s \n", spaces, person);
         spaces += "  ";
-        for (AbstractPerson child : person.children) {
+        for (AbstractCreature child : person.children) {
             generateTreeDescendants(child, spaces);
         }
 
     }
-    public HashSet<AbstractPerson> getUnclesAunts(Gender gender) {
-        HashSet<AbstractPerson> result = new HashSet<>();
-        HashSet<AbstractPerson> motherBrothersSisters = this.getMother().getSiblings(gender);
-        HashSet<AbstractPerson> fatherBrothersSisters = this.getFather().getSiblings(gender);
+    public HashSet<AbstractCreature> getUnclesAunts(Gender gender) {
+        HashSet<AbstractCreature> result = new HashSet<>();
+        HashSet<AbstractCreature> motherBrothersSisters = this.getMother().getSiblings(gender);
+        HashSet<AbstractCreature> fatherBrothersSisters = this.getFather().getSiblings(gender);
 
         if (motherBrothersSisters != null) {
             result.addAll(motherBrothersSisters);
@@ -228,14 +221,14 @@ public abstract class AbstractPerson {
         return result;
     }
     public void showUnclesAunts(Gender gender) {
-        HashSet<AbstractPerson> unclesOrAunts = this.getUnclesAunts(gender);
+        HashSet<AbstractCreature> unclesOrAunts = this.getUnclesAunts(gender);
         String word = gender == Gender.man ? "дядя" : "тетя";
         if (unclesOrAunts == null) {
             System.out.printf("У %s нет %s\n", this, word);
             return;
         }
         System.out.printf("У %s есть %s :\n", this, word);
-        for (AbstractPerson uncleOrAunt : unclesOrAunts) {
+        for (AbstractCreature uncleOrAunt : unclesOrAunts) {
 //            System.out.printf("%s %s %s\n", uncleAunt.firstName, uncleAunt.lastName, uncleAunt.gender);
             System.out.println(uncleOrAunt);
         }
@@ -243,10 +236,10 @@ public abstract class AbstractPerson {
     }
     @Override
     public String toString() {
-        return String.format("name: %s %s, gender: %s", this.firstName, this.gender);
+        return String.format("name: %s, gender: %s", this.firstName, this.gender);
     }
     @Override
     public boolean equals(Object person) {
-        return this.id == ((AbstractPerson) person).id;
+        return this.getId() == ((AbstractCreature) person).getId();
     }
 }
