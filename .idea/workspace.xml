@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec0e2f4-0c27-4d63-99c3-48e025b7cdd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar01_HW/Father.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar01_HW/Human.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar01_HW/Program.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar01_HW/Son.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/app/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/Bottle.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/Product.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/TypeProduct.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/model/VendingMachine.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,13 +30,13 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Application.Program">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
