@@ -1,5 +1,5 @@
 package model;
 
-public interface IJob {
-    public String Job();
+public interface Ijob {
+    public String WhatDo();
 }
