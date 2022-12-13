@@ -1,19 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ec0e2f4-0c27-4d63-99c3-48e025b7cdd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/Family.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/FamilyCommunication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/FamilyIterator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/FamilyRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/FamilyTree.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/FamilyTreeRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/Human.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/TypeOfCommunication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/seminar01_HW/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VendingMachine/seminar01_HW/Human.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/seminar02_HW/Program.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/seminar02_HW/Program.java" afterDir="false" />
-    </list>
+    <list default="true" id="5ec0e2f4-0c27-4d63-99c3-48e025b7cdd1" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
