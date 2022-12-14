@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ec0e2f4-0c27-4d63-99c3-48e025b7cdd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/seminar02_HW/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seminar03_HW01/ComparatorLastDigit.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seminar03_HW01/Program.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seminar03_HW02/NewCollection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seminar03_HW02/NewCollectionIterator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/seminar03_HW02/Program.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/VendingMachine/seminar01_HW/Human.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/VendingMachine/seminar01_HW/Human.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/seminar03_HW/Program.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +43,15 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Program">
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="seminar03_HW" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="seminar03_HW02" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.seminar03_HW02.Program">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="VendingMachine" />
@@ -64,8 +78,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="seminar03_HW01.Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="seminar03_HW01.Program" />
+      <module name="VendingMachine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="seminar03_HW02.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="seminar03_HW02.Program" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="seminar03_HW02.Program" />
+      <module name="VendingMachine" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="seminar03_HW02.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.seminar03_HW02.Program" />
+        <item itemvalue="Application.seminar03_HW01.Program" />
         <item itemvalue="Application.Program" />
         <item itemvalue="Application.Main" />
       </list>
