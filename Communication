@@ -1,0 +1,12 @@
+public class Communication {
+    private Human father;
+    private Human mother;
+    private List<Human> children;
+
+    
+    void addChild(Human human) {
+        
+    }
+
+   
+}
