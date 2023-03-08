@@ -13,6 +13,7 @@ public class Main {
         Human<Human> rndChild = new Human<>("Child4", mainFather, mainMother); 
 
         new Human<>("Child Child1", rndChild, "None");
+        print("213123123123");
 
     }
 }
