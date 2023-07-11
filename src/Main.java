@@ -1,7 +1,9 @@
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.FileHandler;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
@@ -16,7 +18,9 @@ public class Main {
                 "4. Add child to person \n " +
                 "5. Get children of person \n" +
                 "6. Get parents of person \n" +
-                "7. Finish your work with tree";
+                "7. Write family tree to the file.txt \n" +
+                "8. Read file.txt \n" +
+                "9. Finish your work with tree";
 
         System.out.println(textMenu);
         System.out.println("Your choice is (enter the number): ");
@@ -33,7 +37,7 @@ public class Main {
     }
 
     // choose option
-    public static void startUserInteraction() {
+    public static void startUserInteraction(SerializableFileHandler fileHandler) {
         while (true) {
             String choice = getMainMenu();
             if (choice.equals("1")) {
@@ -80,11 +84,26 @@ public class Main {
                 String[] childName = getName();
                 Person child = familyTree.getPersonsByFullName(childName[0], childName[1], childName[2]);
                 System.out.println("Parents are: " + child.getParents());
+            } else if (choice.equals("7")) {
+                try {
+                    fileHandler.write(familyTree);
+                } catch (IOException e) {
+                    System.out.println("Faied to write a file");
+                }
+            } else if (choice.equals("8")) {
+                try {
+                    fileHandler.read();
+                } catch (Exception e) {
+                    System.out.println("Faied to read a file");
+                }
+            } else if (choice.equals("9")) {
+                System.out.println("End of work");
             }
         }
     }
 
     public static void main(String[] args) {
-        startUserInteraction();
+        SerializableFileHandler fileHandler = new SerializableFileHandler("data.txt");
+        startUserInteraction(fileHandler);
     }
 }

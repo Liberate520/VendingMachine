@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Person {
+public class Person implements Serializable {
 
     private String first_name;
     private String second_name;
@@ -25,11 +26,11 @@ public class Person {
         return first_name;
     }
 
-        public String getSecondName() {
+    public String getSecondName() {
         return second_name;
     }
 
-        public String getFatherName() {
+    public String getFatherName() {
         return father_name;
     }
 
