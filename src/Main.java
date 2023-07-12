@@ -98,12 +98,31 @@ public class Main {
                 }
             } else if (choice.equals("9")) {
                 System.out.println("End of work");
+                break;
             }
         }
     }
 
     public static void main(String[] args) {
         SerializableFileHandler fileHandler = new SerializableFileHandler("data.txt");
+
+        familyTree.addPerson(new Person("Anton", "Antonov", "Antonovich"));
+        familyTree.addPerson(new Person("Semen", "Antonov", "Antonovich"));
+        familyTree.addPerson(new Person("Kirill", "Antonov", "Antonovich"));
+        familyTree.addPerson(new Person("Ruslan", "Antonov", "Semenovich"));
         startUserInteraction(fileHandler);
+
+        for (Person person : familyTree) {
+            System.out.println(person);
+        }
+
+        System.out.println();
+
+        familyTree.sortByName();
+        for (Person person : familyTree) {
+            System.out.println(person);
+        }
+
+        System.out.println();
     }
 }

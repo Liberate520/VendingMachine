@@ -1,8 +1,9 @@
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
-public class FamilyTree implements Serializable {
+public class FamilyTree implements Serializable, Iterable<Person> {
 
     private List<Person> persons;
 
@@ -45,5 +46,14 @@ public class FamilyTree implements Serializable {
             }
         }
         return null;
+    }
+
+    public void sortByName() {
+        persons.sort(new PersonsComparatorByFirstName());
+    }
+
+    @Override
+    public Iterator<Person> iterator() {
+        return new PersonIterator(persons);
     }
 }

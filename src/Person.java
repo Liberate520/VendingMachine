@@ -3,7 +3,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Person implements Serializable {
-
     private String first_name;
     private String second_name;
     private String father_name;
@@ -19,7 +18,6 @@ public class Person implements Serializable {
         this.in_marriage_with = null;
         this.children = new ArrayList<>();
         this.parents = new ArrayList<>();
-
     }
 
     public String getFirstName() {
