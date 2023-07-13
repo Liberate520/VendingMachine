@@ -7,7 +7,7 @@ import java.util.logging.FileHandler;
 
 public class Main {
     private static Scanner scanner = new Scanner(System.in);
-    private static FamilyTree familyTree = new FamilyTree();
+    private static FamilyTree<Person> familyTree = new FamilyTree<>();
 
     // print menu of choices
     public static String getMainMenu() {

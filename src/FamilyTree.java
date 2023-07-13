@@ -3,21 +3,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class FamilyTree implements Serializable, Iterable<Person> {
+public class FamilyTree<T extends Person> implements Serializable, Iterable<T> {
 
-    private List<Person> persons;
+    private List<T> persons;
 
     public FamilyTree() {
         this.persons = new ArrayList<>();
     }
 
-    // add person to the tree
-    public void addPerson(Person person) {
-        this.persons.add(person);
+    // add T to the tree
+    public void addPerson(T T) {
+        this.persons.add(T);
     }
 
-    public List<Person> getAllPersons() {
-        List<Person> res = new ArrayList<>();
+    public List<T> getAllPersons() {
+        List<T> res = new ArrayList<>();
         for (int i = 0; i < persons.size(); i++) {
             System.out.println(persons.get(i));
         }
@@ -25,8 +25,8 @@ public class FamilyTree implements Serializable, Iterable<Person> {
     }
 
     // find all matches by the first name
-    public List<Person> getPersonsByFirstName(String first_name) {
-        List<Person> res = new ArrayList<>();
+    public List<T> getPersonsByFirstName(String first_name) {
+        List<T> res = new ArrayList<>();
         for (int i = 0; i < persons.size(); i++) {
             if (persons.get(i).getFirstName().equals(first_name)) {
                 res.add(persons.get(i));
@@ -36,12 +36,12 @@ public class FamilyTree implements Serializable, Iterable<Person> {
         return res;
     }
 
-    // find person by full name
-    public Person getPersonsByFullName(String first_name, String second_name, String father_name) {
+    // find T by full name
+    public T getPersonsByFullName(String first_name, String second_name, String father_name) {
         for (int i = 0; i < persons.size(); i++) {
             if (persons.get(i).getFirstName().equals(first_name) && persons.get(i).getSecondName().equals(second_name)
                     && persons.get(i).getFatherName().equals(father_name)) {
-                System.out.println("Person is found " + persons.get(i));
+                System.out.println("T is found " + persons.get(i));
                 return persons.get(i);
             }
         }
@@ -49,11 +49,11 @@ public class FamilyTree implements Serializable, Iterable<Person> {
     }
 
     public void sortByName() {
-        persons.sort(new PersonsComparatorByFirstName());
+        persons.sort(new PersonsComparatorByFirstName<T>());
     }
 
     @Override
-    public Iterator<Person> iterator() {
-        return new PersonIterator(persons);
+    public Iterator<T> iterator() {
+        return new PersonIterator<T>(persons);
     }
 }
