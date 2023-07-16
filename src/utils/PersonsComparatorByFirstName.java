@@ -1,4 +1,7 @@
+package utils;
 import java.util.Comparator;
+
+import model.Person;
 
 public class PersonsComparatorByFirstName<T extends Person> implements Comparator<T> {
     @Override

@@ -1,11 +1,19 @@
+package model;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import utils.PersonIterator;
+import utils.PersonsComparatorByFirstName;
+import utils.SerializableFileHandler;
+
 public class FamilyTree<T extends Person> implements Serializable, Iterable<T> {
 
     private List<T> persons;
+    SerializableFileHandler fileHandler = new SerializableFileHandler("data.out");
 
     public FamilyTree() {
         this.persons = new ArrayList<>();
@@ -17,11 +25,7 @@ public class FamilyTree<T extends Person> implements Serializable, Iterable<T> {
     }
 
     public List<T> getAllPersons() {
-        List<T> res = new ArrayList<>();
-        for (int i = 0; i < persons.size(); i++) {
-            System.out.println(persons.get(i));
-        }
-        return res;
+        return this.persons;
     }
 
     // find all matches by the first name
@@ -56,4 +60,21 @@ public class FamilyTree<T extends Person> implements Serializable, Iterable<T> {
     public Iterator<T> iterator() {
         return new PersonIterator<T>(persons);
     }
+
+    public void writeData() {
+        try {
+            fileHandler.write(this);
+        } catch (IOException e) {
+            System.out.println("Faied to write a file");
+        }
+    }
+
+    public void readData() {
+        try {
+            fileHandler.read();
+        } catch (Exception e) {
+            System.out.println("Faied to read a file");
+        }
+    }
+
 }

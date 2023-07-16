@@ -1,5 +1,8 @@
+package utils;
 import java.util.Iterator;
 import java.util.List;
+
+import model.Person;
 
 public class PersonIterator<T extends Person> implements Iterator<T> {
 
