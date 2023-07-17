@@ -1,11 +1,18 @@
+import model.FamilyTree;
+import model.Person;
+import presenter.Presenter;
+import ui.UIHandler;
 
-//    @Liberate520
-// мой тг
 public class Main {
-    public static void main(String[] args) {
-        VendingMachine vendingMachine = new VendingMachine();
+    public static void runApplication() {
+        UIHandler console = new UIHandler();
+        FamilyTree<Person> familyTree = new FamilyTree<>();
+        Presenter presenter = new Presenter(console, familyTree);
 
-        Bottle bottle = new Bottle(100, "Sprite", 2);
-        System.out.println(bottle);
+        presenter.startApp();
+    }
+
+    public static void main(String[] args) {
+        runApplication();
     }
 }
